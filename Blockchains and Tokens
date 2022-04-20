@@ -1,0 +1,93 @@
+Blockchains and Tokens
+Tools:
+Etherscan
+andersbrownworth.com/blockchain/blockchain
+
+
+sha 256 hash - data in does not determine legth - keeps same string length regardless
+
+Block -
+-block #
+-Nonce #
+-Data
+-hash
+
+Nonce is the value miners solve for given hash and block #
+
+Blockchain
+-block #
+-Nonce #
+-Data
+-previous
+-hash
+
+Genesis Block - 1st block - prev points to a block that doesnt exist. 000000...
+
+Distributed Blockchain
+Peer A
+Blockchain
+-block #
+-Nonce #
+-Data
+-previous
+-hash
+
+Peer B
+Blockchain
+-block #
+-Nonce #
+-Data
+-previous
+-hash
+
+the latest hash in the most current block encompasses all previous hashes of all previous blocks
+The peers review eachothers block hash and if a peer has a different hash it is booted from participating
+
+Tokens
+-Block #
+-Nonce #
+-Tx Data
+-Prev: hash of last block
+-Hash: current hash of current block
+
+Nonce: A "number used once" to find the "solution" to the blockchain problem.
+-Eth: It is also used to define the transaction number for an account/address
+
+Elliptic Curve Digital Signature Algorithm (ECDSA) (BTC & ETH)
+- a variant of the Digital Signature Algorithm (DSA) which uses elliptic curve cryptography
+Private Key:
+Only known to the key holder, used to "sign" transactions
+
+1. private key is created
+2. public key is generated to give out and the world can see it
+3. private key is used as a "password" to digitally sign transactions
+4. public key is seen as the person who signed and can be verified by others
+
+Signatures (sign) - you can sign with private key to get message signature but private key cannot be derived from Message Signature
+-Message
+-Private Key
+-Mesage Signature
+
+Signatures (verify)
+-Message
+-Public Key
+-Signature
+
+Transaction (sign)
+Message:
+-$-From:addr->addr
+-Private Key
+--Sign--
+-Message Signature Generated
+
+Transaction (verify)
+Message:
+-$-From:addr->addr
+-Signature
+--Verify
+
+Private key ||| > public key > Address
+
+Ethereum Wallet address:
+-Public key hashed with ECDSA
+-A dirivitive of the public key

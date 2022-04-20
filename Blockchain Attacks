@@ -1,0 +1,11 @@
+Blockchain Attacks 
+
+1. Sybil Attack:
+	-A user creates a bunch of psuedo anonymous accounts to try and influence a network
+	-A single entity tries to affect the decentrality of the network by pretending to be a bunch of different entities
+	-User has to do a ton of work in Proof of Work blockchains so it is hard to pull of this attack
+	-In proof of stake the user will require a ton of collateral
+
+2. 51% attack
+	-These blockchain's will agree to go with the longest chain so long as it mactches up with 51% of the network
+	-This means that if you have the longest chain and you have more than 51% of the rest of the network you can do a fork in the network and bring the rest of the network to your longest chain

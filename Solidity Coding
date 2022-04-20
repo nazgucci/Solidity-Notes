@@ -1,0 +1,179 @@
+Solidity Coding
+
+Always need solidity version
+"pragma solidity <version>;"
+Example: Use any version between 0.6.0 and 0.9.0
+"pragma solidity >=0.6.0 <0.9.0;"
+Use 0.6.0 specifically
+"pragma solidity 0.6.0;"
+Use any version of 0.6.0
+"pragma solidity ^0.6.0;"
+
+Defining a Contract:
+a class in java or any object oriented language
+
+contract SimpleStorage {
+	
+
+}
+	Types:
+	-Integers: whole numbers
+	-uint: unsigned integer not positve or negative
+	-Booleans
+	-Strings
+	-Addresses
+	-bytes
+
+Setting a variable:
+"uint256 favoritenumber = 5;" (integer of size 256 bits)
+"bool favoriteBool =false;"
+"string favoriteString = "String";"
+"int256 favoriteInt = -5;"
+"address favoriteAddress = 0x364821E123D197C52e4DF54df0Dc29DC1460E16a;"
+"bytes32 favoriteBytes = "cat";" 32 max
+
+Only want to store numbers
+uint example:
+pragma solidity ^0.6.0
+
+contract {
+	// this will initialized to 5
+	uint256 favorite number =5;
+	// this will initialize to 0!
+	//uint256 favoriteNumber;
+}
+
+Functions or methods are self contained modules that will execute some task for us:
+Make a function called store that will change the value of favorite number.
+
+pragma solidity ^0.6.0;
+
+contract {
+	uint256 favoriteNumber;
+
+	function store(uint256 _favoriteNumber) public {
+		favoriteNumber = _favoriteNumber;
+	}
+}
+
+How to show favoriteNumber?
+
+pragma solidity ^0.6.0;
+
+contract {
+	//this will get initialized to 0!
+	uint256 public favoriteNumber;
+
+	function store(uint256 _favoriteNumber) public {
+		favoriteNumber = _favoriteNumber;
+	}
+}
+
+Keywords:Visibility:
+
+external
+    External functions are part of the contract interface, which means they can be called from other contracts and via transactions. An external function f cannot be called internally (i.e. f() does not work, but this.f() works).
+
+public
+    Public functions are part of the contract interface and can be either called internally or via message calls.
+
+internal
+    Internal functions can only be accessed from within the current contract or contracts deriving from it. They cannot be accessed externally. Since they are not exposed to the outside through the contract’s ABI, they can take parameters of internal types like mappings or storage references.
+
+private
+
+    Private functions are like internal ones but they are not visible in derived contracts.
+
+If no state veriable is defined then it sets it to "internal"
+Example:
+
+pragma solidity ^0.6.0;
+
+contract SimpleStorage {
+
+    //if no state variable "public" is set then this will automatically be set to "internal"
+    //favoriteNumber will initialize to 0!
+    uint256 public favoriteNumber;
+
+    function store(uint256 _favoriteNumber) public {
+        favoriteNumber = _favoriteNumber;
+    }
+}
+
+Transactions = function calls = smart contract interactions
+on a blockchain whenever you call a function or whenever you make a state change to the blockchain you are actually making a transaction - thats what makes this whole thing so powerful.
+This is why making a function call or deploying a contract costs a little bit of Gas
+
+Scopes:
+Example:
+
+pragma solidity ^0.6.0;
+
+contract SimpleStorage {
+
+    //if no state variable is set then this will automatically be set to internal
+    //favoriteNumber will initialize to 0!
+    //favoriteNumber is in the global scope since it only has 1 "{" above it
+    //reason we can use favoriteNumber is because it has been globally set as public
+    uint256 public favoriteNumber;
+
+    function store(uint256 _favoriteNumber) private {
+        favoriteNumber = _favoriteNumber;
+        //the "test" variable is internal to this function any other function will not be able to see this variable
+        //"test" variable is in the "store" scope since it has 2 "{" above it
+        uint256 test =4;
+    }
+	function store2() public {
+    	//store2 does not know that the "test" variable in function "store" exists
+    	//functions only see variables in the same scope as them
+    }
+}
+
+
+View Functions
+type "view"
+2 special keywords that define functions that you dont have to make a transaction on view, and pure
+
+Example:
+    //view, pure dont make transactions
+    function retrieve() public view returns(uint256) {
+        return favoriteNumber;
+    }
+
+blue buttons are blue because they are view functions
+public variables automatically also "view" functions
+
+Pure functions
+purely do math but they dont save anything
+blue buttons do not change the state of the blockchain
+
+Example:
+//view, pure dont make transactions
+    function retrieve(uint256 favoriteNumber) public pure {
+        favoriteNumber + favoriteNumber;
+    }
+
+
+Create a function to store a number and retrieve it
+Example:
+
+pragma solidity ^0.6.0;
+
+contract SimpleStorage {
+
+    //if no state variable is set then this will automatically be set to internal
+    //favoriteNumber will initialize to 0!
+    //favoriteNumber is in the global scope since it only has 1 "{" above it
+    //reason we cant see favoriteNumber is because it has been globally set as internal
+    uint256 favoriteNumber;
+
+    function store(uint256 _favoriteNumber) public {
+        favoriteNumber = _favoriteNumber;
+    }
+    
+
+   
+    function retrieve() public view returns(uint256) {
+        return favoriteNumber;
+    }
+}

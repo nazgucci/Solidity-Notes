@@ -1,0 +1,90 @@
+dApp= Smart Contract = Decentralized Application
+interchangeable Vernacular 
+
+Smart Contracts:
+-Hybrid Smart Contract: Uses Oracle networks to pull external data or execute external computations. (Think API calls)
+-Lots of dApps, DeFi, and large apps use a combination of Hybrid smart contracts.
+-Chain Link is an Oracle Network
+
+Each blockchain has different algorithms but the principle is the same.
+
+Node: one server running blockchain technology on the network
+Anyone can join the network and start up a node.
+
+blockchains are resilient if one node or many go down the system and network will persist as long as one node is up.
+Malicious nodes are immediately booted off the network.
+
+Blockchains are immutable - decentralized database - in the case of Ethereum extra feature is decentralized computation.
+
+Consensus: Proof of work / proof of stake
+-the mechanism used to reach an agreement on the state or single value on the blockchain
+
+Consensus Protocols can be broken down into 2 pieces:
+1. Chain selection algorithm
+2. Sybil Resistance Mechanism (BTC & ETH use this but ETH2 does not)
+3. Other blockchains might have additional pieces but the 2 are common amongst all
+
+Proof of work is known as a Sybil Resistance Mechanism
+-Defines a way to figure out who is the block author which is the node that did the work to find that mine and be the author of that block so that the other nodes can verify that this is accurate.
+-Sybil Resistance is a mechanism used by the blockchain to defend against users from creating a large number of psudo anonymous identites to gain a dispraportionate advantageous influence over the said system
+IN ENGLISH:
+Basically a way for a blockchain to defend against someone making a bunch of fake nodes so they can get more and more rewards
+Aka Mining
+
+1.Types of Sybil Resistance Mechanisms:
+-Proof of Work (PoW)
+-Proof of Stake (PoS)
+
+Block Time: -> depends on complexity to solve for Nonce or the problem specific to the blockchain you are working on
+-Harder -> longer
+-Easier -> shorter
+
+Sybil Attacks
+
+2. Chain Selection Rule
+How do we know which is the real and true blockchain?
+Nakamoto Consensus: A combination of "PoW" and "longest chain rule"
+A decentralized network will decide that whichever blockchain has the longest chain (# of blocks) that is the one to use because it requires the most computational to come up
+
+Block Confirmations:
+The number of additional blocks added on after our transaction goes through in a block
+Example: If we have 2 block confirmations this means that the block that our transaction was in has 2 blocks ahead of it in the longest chain
+
+People use the term "Proof of Work" as a consensus protocol but this is inaccurate but people use it interchangeably
+PoW is a piece of the overall Consensus protocol
+In BTC & ETH the consensus protocol is Nakamoto Consensus which is a combination of Proof of Work and Longest Chain rule both equally important
+
+PoW -> Nodes compete to be the first one to solve the problem and get the block reward + transaction fee -> when there is no more block rewards the miners will only be paid with transaction fees
+Gas fees are paid by whoever makes the transaction
+
+PoW -> more secure -> uses more energy
+
+Proof of Stake: Gas fees are paid to validators rather than miners
+	-put up stake and if you misbehave you get slashed and will lose potentially all your stakes collateral
+	-Nodes are randomly chosen to propose a new block and validators will verify that the node proposed the new block honestly
+PoS -> Slightly less decentralized -> uses less energy
+
+The bigger the blockchain the more secure
+
+Randomness (Deterministic systems don't have randomness they are walled gardens so each blockchain has its own randomness added)
+
+Scalability (Gas Fees): How much does it cost to interact with the blockchain
+
+Eth
+Sharding
+-a sharded blockchain is a blockchain of blockchains. 
+-A main chain will coordinate everything amongst several chains that hook into this main chain which means if there is more chains for people to do transactions on effectively increases the amount of block space that there is.
+-Sharding can greatly increase the # of transactions on a "layer 1"
+
+Layer 1: Base Layer Blockchain implementation
+-ETH
+-BTC
+-AVAX
+
+Layer 2: Any application added on top of a layer 1 blockchain
+-Arbitrum (rollups)
+-ChainLink (oracle)
+-Optimism (rollups)
+
+side chains: derive security from their own protocols
+rollups: derive security from the main layer 1 meaning Arbitrium and Optimism are just as secure as Ethereum
